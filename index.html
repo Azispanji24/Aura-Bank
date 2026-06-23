@@ -213,17 +213,14 @@
       class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-[15px] border-b border-white/10 shadow-sm"
     >
       <div
-        class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-container-max mx-auto"
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto"
       >
         <div
           class="text-headline-md font-display-lg tracking-tighter text-primary-fixed-dim"
         >
           AuraBank
         </div>
-          <button id="mobileMenuBtn" class="md:hidden flex items-center p-2 rounded-md text-on-surface-variant hover:bg-white/5 focus:outline-none" onclick="toggleMobileMenu()">
-            <span class="material-symbols-outlined">menu</span>
-          </button>
-          <div id="navLinks" class="hidden md:flex gap-8">
+        <div id="navLinks" class="hidden md:flex gap-8">
           <a
             class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm"
             href="#"
@@ -250,7 +247,7 @@
             >Inovasi</a
           >
         </div>
-        <div class="flex items-center gap-4">
+        <div class="hidden md:flex items-center gap-4">
           <button
             class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all"
           >
@@ -258,6 +255,60 @@
           </button>
           <button
             class="bg-primary-container text-on-primary px-6 py-2.5 rounded-full font-label-sm text-label-sm font-bold scale-95 active:opacity-80 transition-all hover:shadow-[0_0_15px_rgba(0,230,118,0.4)]"
+          >
+            Masuk ke Dashboard
+          </button>
+        </div>
+        <button id="mobileMenuBtn" class="md:hidden flex items-center p-2 rounded-md text-on-surface-variant hover:bg-white/5 focus:outline-none" onclick="toggleMobileMenu()">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+      <!-- Mobile Menu Overlay -->
+      <div
+        id="mobileMenu"
+        class="fixed inset-x-0 top-20 bottom-0 z-40 bg-background/95 backdrop-blur-lg border-b border-white/10 md:hidden hidden flex-col px-margin-mobile py-8 gap-8 overflow-y-auto"
+      >
+        <div class="flex flex-col gap-6 text-center">
+          <a
+            class="text-primary font-bold pb-2 border-b border-white/5 text-lg"
+            href="#"
+            onclick="toggleMobileMenu()"
+            >Personal</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors duration-300 text-lg py-2 border-b border-white/5"
+            href="#"
+            onclick="toggleMobileMenu()"
+            >Bisnis</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors duration-300 text-lg py-2 border-b border-white/5"
+            href="#"
+            onclick="toggleMobileMenu()"
+            >Investasi</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors duration-300 text-lg py-2 border-b border-white/5"
+            href="#"
+            onclick="toggleMobileMenu()"
+            >Keamanan</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors duration-300 text-lg py-2 border-b border-white/5"
+            href="#"
+            onclick="toggleMobileMenu()"
+            >Inovasi</a
+          >
+        </div>
+        <div class="flex flex-col gap-4 mt-auto">
+          <button
+            class="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-on-surface-variant hover:text-white py-4 rounded-xl transition-all border border-white/10"
+          >
+            <span class="material-symbols-outlined">account_balance_wallet</span>
+            <span>Dompet Saya</span>
+          </button>
+          <button
+            class="bg-primary-container text-on-primary py-4 rounded-xl font-bold transition-all hover:shadow-[0_0_15px_rgba(0,230,118,0.4)]"
           >
             Masuk ke Dashboard
           </button>
@@ -396,7 +447,7 @@ void main() {
         </div>
         <!-- STITCH_SHADER_END:ANIMATION_2 -->
         <div
-          class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-2 gap-16 items-center"
+          class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-16 items-center"
         >
           <div class="reveal">
             <span
@@ -428,7 +479,7 @@ void main() {
           <div class="reveal card-perspective flex justify-center">
             <!-- Aura Platinum Card 3D Simulator -->
             <div
-              class="aura-card relative w-[420px] h-[260px] glass-panel rounded-2xl overflow-hidden border border-white/20 shadow-2xl p-8 flex flex-col justify-between"
+              class="aura-card relative w-full max-w-[420px] aspect-[1.618/1] h-auto glass-panel rounded-2xl overflow-hidden border border-white/20 shadow-2xl p-6 sm:p-8 flex flex-col justify-between"
               id="heroCard"
             >
               <div class="flex justify-between items-start">
@@ -452,7 +503,7 @@ void main() {
                   PLATINUM QUANTUM
                 </div>
                 <div
-                  class="font-display-lg text-headline-md tracking-widest text-on-surface mb-6"
+                  class="font-display-lg text-xl sm:text-headline-md tracking-widest text-on-surface mb-4 sm:mb-6"
                 >
                   4522 • 8890 • 1200 • 3341
                 </div>
@@ -464,7 +515,7 @@ void main() {
                       Card Holder
                     </div>
                     <div
-                      class="font-headline-md text-body-md font-bold uppercase tracking-wider"
+                      class="font-headline-md text-sm sm:text-body-md font-bold uppercase tracking-wider"
                     >
                       AL KHAWARIZMI
                     </div>
@@ -485,7 +536,7 @@ void main() {
       </section>
       <!-- Dashboard Simulator Section -->
       <section class="py-24 bg-surface-container-lowest relative">
-        <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <div
             class="reveal mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8"
           >
@@ -500,7 +551,7 @@ void main() {
               </p>
             </div>
             <div
-              class="glass-panel p-6 rounded-2xl border-primary/20 border min-w-[300px]"
+              class="glass-panel p-6 rounded-2xl border-primary/20 border w-full sm:w-auto sm:min-w-[300px]"
             >
               <p
                 class="font-label-sm text-label-sm text-on-surface-variant mb-2"
@@ -626,7 +677,7 @@ void main() {
               <!-- Transaction History -->
               <div class="glass-panel rounded-2xl overflow-hidden">
                 <div
-                  class="px-8 py-6 border-b border-white/5 flex justify-between items-center"
+                  class="px-4 sm:px-8 py-6 border-b border-white/5 flex justify-between items-center"
                 >
                   <h3 class="font-headline-md text-body-lg">
                     Transaksi Terakhir
@@ -642,7 +693,7 @@ void main() {
                 >
                   <!-- Transaction Item -->
                   <div
-                    class="px-8 py-5 flex items-center justify-between hover:bg-white/5 transition-colors"
+                    class="px-4 sm:px-8 py-5 flex items-center justify-between hover:bg-white/5 transition-colors"
                   >
                     <div class="flex items-center gap-4">
                       <div
@@ -672,7 +723,7 @@ void main() {
                     </div>
                   </div>
                   <div
-                    class="px-8 py-5 flex items-center justify-between hover:bg-white/5 transition-colors"
+                    class="px-4 sm:px-8 py-5 flex items-center justify-between hover:bg-white/5 transition-colors"
                   >
                     <div class="flex items-center gap-4">
                       <div
@@ -698,7 +749,7 @@ void main() {
                     </div>
                   </div>
                   <div
-                    class="px-8 py-5 flex items-center justify-between hover:bg-white/5 transition-colors"
+                    class="px-4 sm:px-8 py-5 flex items-center justify-between hover:bg-white/5 transition-colors"
                   >
                     <div class="flex items-center gap-4">
                       <div
@@ -808,7 +859,7 @@ void main() {
       </section>
       <!-- Security Features -->
       <section class="py-24 relative">
-        <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <div class="text-center max-w-2xl mx-auto mb-20 reveal">
             <h2 class="font-display-lg text-display-lg mb-6">
               Keamanan Tingkat Enterprise
@@ -820,7 +871,7 @@ void main() {
           </div>
           <div class="grid md:grid-cols-3 gap-gutter">
             <div
-              class="glass-panel p-10 rounded-3xl reveal border-t-2 border-primary/20"
+              class="glass-panel p-6 sm:p-10 rounded-3xl reveal border-t-2 border-primary/20"
             >
               <div
                 class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8"
@@ -838,7 +889,7 @@ void main() {
               </p>
             </div>
             <div
-              class="glass-panel p-10 rounded-3xl reveal border-t-2 border-secondary/20"
+              class="glass-panel p-6 sm:p-10 rounded-3xl reveal border-t-2 border-secondary/20"
             >
               <div
                 class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-8"
@@ -856,7 +907,7 @@ void main() {
               </p>
             </div>
             <div
-              class="glass-panel p-10 rounded-3xl reveal border-t-2 border-white/20"
+              class="glass-panel p-6 sm:p-10 rounded-3xl reveal border-t-2 border-white/20"
             >
               <div
                 class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-on-surface mb-8"
@@ -879,7 +930,7 @@ void main() {
       <!-- FAQ Section -->
       <section class="py-24 bg-surface-container-low">
         <div
-          class="max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-2 gap-20"
+          class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-20"
         >
           <div class="reveal">
             <h2 class="font-display-lg text-display-lg mb-8">
@@ -894,7 +945,7 @@ void main() {
                 class="glass-panel rounded-2xl overflow-hidden border border-white/5"
               >
                 <button
-                  class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors"
+                  class="w-full px-5 sm:px-8 py-5 sm:py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors"
                   onclick="toggleFaq(this)"
                 >
                   <span class="font-semibold"
@@ -906,7 +957,7 @@ void main() {
                   >
                 </button>
                 <div
-                  class="faq-content hidden px-8 pb-6 text-on-surface-variant"
+                  class="faq-content hidden px-5 sm:px-8 pb-5 sm:pb-6 text-on-surface-variant"
                 >
                   Layanan Aura Platinum memiliki biaya keanggotaan Rp
                   500.000/bulan yang mencakup akses ke Concierge, Priority
@@ -917,7 +968,7 @@ void main() {
                 class="glass-panel rounded-2xl overflow-hidden border border-white/5"
               >
                 <button
-                  class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors"
+                  class="w-full px-5 sm:px-8 py-5 sm:py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors"
                   onclick="toggleFaq(this)"
                 >
                   <span class="font-semibold"
@@ -929,7 +980,7 @@ void main() {
                   >
                 </button>
                 <div
-                  class="faq-content hidden px-8 pb-6 text-on-surface-variant"
+                  class="faq-content hidden px-5 sm:px-8 pb-5 sm:pb-6 text-on-surface-variant"
                 >
                   Ya, AuraBank adalah bank digital penuh yang dapat diakses dari
                   mana saja selama Anda memiliki koneksi internet. Pembukaan
@@ -940,7 +991,7 @@ void main() {
           </div>
           <div class="reveal">
             <div
-              class="glass-panel p-10 rounded-3xl relative overflow-hidden border border-primary/30"
+              class="glass-panel p-6 sm:p-10 rounded-3xl relative overflow-hidden border border-primary/30"
             >
               <div
                 class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"
@@ -982,7 +1033,7 @@ void main() {
       id="modalOverlay"
     >
       <div
-        class="glass-panel max-w-md w-full rounded-3xl p-10 border border-primary/30 transform scale-95 transition-all duration-300"
+        class="glass-panel max-w-md w-full rounded-3xl p-6 sm:p-10 border border-primary/30 transform scale-95 transition-all duration-300"
         id="modalContent"
       >
         <div class="flex justify-between items-start mb-8">
@@ -1042,7 +1093,7 @@ void main() {
       class="w-full py-12 bg-surface-container-lowest border-t border-white/5"
     >
       <div
-        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto"
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
       >
         <div class="col-span-1 md:col-span-1">
           <div class="text-headline-md font-display-lg text-primary mb-6">
@@ -1120,7 +1171,7 @@ void main() {
         </div>
       </div>
       <div
-        class="mt-16 px-margin-desktop max-w-container-max mx-auto border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6"
+        class="mt-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6"
       >
         <p
           class="text-on-surface-variant font-label-sm text-label-sm text-center md:text-left"
@@ -1265,6 +1316,23 @@ void main() {
         if (!isOpen) {
           content.classList.remove("hidden");
           icon.style.transform = "rotate(180deg)";
+        }
+      }
+
+      // Mobile Menu Toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobileMenu");
+        const btnIcon = document.querySelector("#mobileMenuBtn .material-symbols-outlined");
+        const isOpen = !menu.classList.contains("hidden");
+
+        if (isOpen) {
+          menu.classList.add("hidden");
+          btnIcon.textContent = "menu";
+          document.body.classList.remove("overflow-hidden");
+        } else {
+          menu.classList.remove("hidden");
+          btnIcon.textContent = "close";
+          document.body.classList.add("overflow-hidden");
         }
       }
     </script>
