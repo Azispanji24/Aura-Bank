@@ -46,18 +46,5 @@ Aplikasi ini menyajikan visualisasi kepatuhan regulasi dan infrastruktur keamana
 
 ---
 
-## 📁 Project Structure
 
-```text
-AuraBank/
-│
-├── index.html
-├── style.css
-├── script.js
-│
-├── assets/
-│   ├── cards/
-│   ├── charts/
-│   └── secure-icons/
-│
 └── README.md
