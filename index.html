@@ -220,7 +220,10 @@
         >
           AuraBank
         </div>
-        <div class="hidden md:flex gap-8">
+          <button id="mobileMenuBtn" class="md:hidden flex items-center p-2 rounded-md text-on-surface-variant hover:bg-white/5 focus:outline-none" onclick="toggleMobileMenu()">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <div id="navLinks" class="hidden md:flex gap-8">
           <a
             class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm"
             href="#"
