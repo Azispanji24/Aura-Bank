@@ -1,0 +1,1269 @@
+<!doctype html>
+
+<html class="dark" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AuraBank Indonesia | Bank Digital Masa Depan</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Geist:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#32353b",
+              "on-error-container": "#ffdad6",
+              "surface-tint": "#00e475",
+              "on-secondary-fixed": "#001e30",
+              "error-container": "#93000a",
+              "tertiary-fixed": "#e2e2e2",
+              "surface-container": "#1d2025",
+              "on-primary": "#003918",
+              "on-tertiary-fixed": "#1a1c1c",
+              "surface-container-lowest": "#0b0e13",
+              "on-secondary-fixed-variant": "#004b70",
+              "on-primary-fixed-variant": "#005226",
+              "secondary-fixed-dim": "#8dcdff",
+              "on-primary-container": "#00612e",
+              secondary: "#8dcdff",
+              "on-secondary-container": "#003f5f",
+              "primary-fixed": "#62ff96",
+              "on-tertiary-fixed-variant": "#454747",
+              "on-surface-variant": "#bacbb9",
+              error: "#ffb4ab",
+              "surface-container-high": "#272a30",
+              "surface-container-low": "#191c21",
+              "inverse-primary": "#006d35",
+              "on-tertiary": "#2f3131",
+              "on-primary-fixed": "#00210b",
+              "on-background": "#e1e2ea",
+              "tertiary-container": "#c8c8c8",
+              surface: "#101319",
+              primary: "#75ff9e",
+              "outline-variant": "#3b4a3d",
+              "surface-dim": "#101319",
+              "secondary-fixed": "#cae6ff",
+              "surface-bright": "#36393f",
+              "primary-container": "#00e676",
+              "tertiary-fixed-dim": "#c6c6c7",
+              outline: "#859585",
+              "surface-container-highest": "#32353b",
+              "on-error": "#690005",
+              tertiary: "#e4e4e4",
+              "primary-fixed-dim": "#00e475",
+              background: "#080B10",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "1rem",
+              "2xl": "1.5rem",
+              full: "9999px",
+            },
+            spacing: {
+              "container-max": "1440px",
+              gutter: "24px",
+              "margin-desktop": "64px",
+              unit: "8px",
+              "margin-mobile": "20px",
+            },
+            fontFamily: {
+              "body-md": ["Plus Jakarta Sans"],
+              "body-lg": ["Plus Jakarta Sans"],
+              "display-lg-mobile": ["Plus Jakarta Sans"],
+              "label-sm": ["Geist"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "display-lg": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "display-lg-mobile": [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-sm": [
+                "12px",
+                {
+                  lineHeight: "1.0",
+                  letterSpacing: "0.05em",
+                  fontWeight: "500",
+                },
+              ],
+              "headline-md": ["24px", { lineHeight: "1.4", fontWeight: "600" }],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotateX(10deg) rotateY(-10deg);
+        }
+        50% {
+          transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+        }
+      }
+
+      .card-perspective {
+        perspective: 2000px;
+      }
+
+      .aura-card {
+        transform-style: preserve-3d;
+        animation: float 6s ease-in-out infinite;
+        transition: transform 0.1s ease-out;
+      }
+
+      .glass-panel {
+        background: rgba(18, 24, 36, 0.6);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .neon-glow-primary {
+        filter: drop-shadow(0 0 8px rgba(0, 230, 118, 0.3));
+      }
+
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #32353b;
+        border-radius: 10px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .cyber-emerald-gradient {
+        background: linear-gradient(135deg, #75ff9e 0%, #00e475 100%);
+      }
+
+      /* Material Icon Helper */
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md selection:bg-primary/30"
+  >
+    <!-- Loading Screen -->
+    <div
+      class="fixed inset-0 z-[100] bg-background flex items-center justify-center transition-opacity duration-700"
+      id="loader"
+    >
+      <div class="relative">
+        <div
+          class="w-24 h-24 border-2 border-primary/20 rounded-full animate-ping"
+        ></div>
+        <div
+          class="absolute inset-0 flex items-center justify-center font-display-lg text-primary text-headline-md tracking-tighter"
+        >
+          A
+        </div>
+      </div>
+    </div>
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-[15px] border-b border-white/10 shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-container-max mx-auto"
+      >
+        <div
+          class="text-headline-md font-display-lg tracking-tighter text-primary-fixed-dim"
+        >
+          AuraBank
+        </div>
+        <div class="hidden md:flex gap-8">
+          <a
+            class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm"
+            href="#"
+            >Personal</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-sm text-label-sm"
+            href="#"
+            >Bisnis</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-sm text-label-sm"
+            href="#"
+            >Investasi</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-sm text-label-sm"
+            href="#"
+            >Keamanan</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-sm text-label-sm"
+            href="#"
+            >Inovasi</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all"
+          >
+            account_balance_wallet
+          </button>
+          <button
+            class="bg-primary-container text-on-primary px-6 py-2.5 rounded-full font-label-sm text-label-sm font-bold scale-95 active:opacity-80 transition-all hover:shadow-[0_0_15px_rgba(0,230,118,0.4)]"
+          >
+            Masuk ke Dashboard
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-screen flex items-center pt-20 overflow-hidden"
+      >
+        <!-- STITCH_SHADER_START:ANIMATION_2 class="absolute inset-0 w-full h-full opacity-40" -->
+        <div
+          class="absolute inset-0 w-full h-full opacity-40"
+          style="display: block"
+        >
+          <canvas
+            id="shader-canvas-ANIMATION_2"
+            style="display: block; width: 100%; height: 100%"
+          ></canvas>
+          <script>
+            (function () {
+              const canvas = document.getElementById(
+                "shader-canvas-ANIMATION_2",
+              );
+
+              // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+              // This fires on initial layout and whenever the element is resized.
+              function syncSize() {
+                const w = canvas.clientWidth || 1280;
+                const h = canvas.clientHeight || 720;
+                if (canvas.width !== w || canvas.height !== h) {
+                  canvas.width = w;
+                  canvas.height = h;
+                }
+              }
+              if (typeof ResizeObserver !== "undefined") {
+                new ResizeObserver(syncSize).observe(canvas);
+              }
+              syncSize();
+
+              const gl =
+                canvas.getContext("webgl") ||
+                canvas.getContext("experimental-webgl");
+              if (!gl) return;
+              const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+              const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+varying vec2 v_texCoord;
+
+float hash(vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec3 color = vec3(0.031, 0.043, 0.063); // Midnight Blue Grey base
+
+    // Subtle drifting particles
+    for (float i = 0.0; i < 40.0; i++) {
+        float h = hash(vec2(i, 123.45));
+        vec2 p = vec2(hash(vec2(h, 67.89)), hash(vec2(h, 98.76)));
+        p.y = fract(p.y + u_time * 0.02 * (0.5 + h));
+        p.x += sin(u_time * 0.1 + h * 6.28) * 0.02;
+        
+        float dist = length(uv - p);
+        float size = 0.001 + h * 0.002;
+        float alpha = smoothstep(size, 0.0, dist) * (0.3 + 0.7 * sin(u_time + h * 6.28));
+        
+        vec3 pColor = (h > 0.5) ? vec3(0.0, 0.9, 0.46) : vec3(0.0, 0.69, 1.0); // Emerald or Cyan
+        color += pColor * alpha * 0.5;
+    }
+
+    // Vignette
+    float vig = 1.0 - length(uv - 0.5) * 0.7;
+    gl_FragColor = vec4(color * vig, 1.0);
+}`;
+              function cs(type, src) {
+                const s = gl.createShader(type);
+                gl.shaderSource(s, src);
+                gl.compileShader(s);
+                return s;
+              }
+              const prog = gl.createProgram();
+              gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+              gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+              gl.linkProgram(prog);
+              gl.useProgram(prog);
+              const buf = gl.createBuffer();
+              gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+              gl.bufferData(
+                gl.ARRAY_BUFFER,
+                new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+                gl.STATIC_DRAW,
+              );
+              const pos = gl.getAttribLocation(prog, "a_position");
+              gl.enableVertexAttribArray(pos);
+              gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+              const uTime = gl.getUniformLocation(prog, "u_time");
+              const uRes = gl.getUniformLocation(prog, "u_resolution");
+              const uMouse = gl.getUniformLocation(prog, "u_mouse");
+
+              // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+              // Shaders that need normalized coords should use: u_mouse / u_resolution.
+              let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+              window.addEventListener("mousemove", (event) => {
+                const rect = canvas.getBoundingClientRect();
+                if (rect.width && rect.height) {
+                  const nx = (event.clientX - rect.left) / rect.width;
+                  const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+                  mouse.x = nx * canvas.width;
+                  mouse.y = ny * canvas.height;
+                }
+              });
+
+              function render(t) {
+                if (typeof ResizeObserver === "undefined") syncSize();
+                gl.viewport(0, 0, canvas.width, canvas.height);
+                if (uTime) gl.uniform1f(uTime, t * 0.001);
+                if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+                if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                requestAnimationFrame(render);
+              }
+              render(0);
+            })();
+          </script>
+        </div>
+        <!-- STITCH_SHADER_END:ANIMATION_2 -->
+        <div
+          class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-2 gap-16 items-center"
+        >
+          <div class="reveal">
+            <span
+              class="inline-block px-4 py-1.5 rounded-full glass-panel text-primary font-label-sm text-label-sm mb-6 border border-primary/20"
+              >EDISI TERBATAS: QUANTUM 2024</span
+            >
+            <h1 class="font-display-lg text-display-lg mb-8 leading-tight">
+              Bank Digital Masa Depan Untuk
+              <span class="text-primary">Keuangan Tanpa Batas</span>
+            </h1>
+            <p class="text-on-surface-variant text-body-lg mb-10 max-w-lg">
+              Alami ekosistem perbankan ultra-premium dengan kecerdasan buatan
+              terintegrasi. Aman, elegan, dan dirancang untuk ambisi Anda.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <button
+                class="cyber-emerald-gradient text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:shadow-[0_0_25px_rgba(117,255,158,0.4)] transition-all transform hover:-translate-y-1"
+              >
+                Mulai Sekarang
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+              <button
+                class="px-8 py-4 rounded-xl border border-white/20 text-on-surface hover:bg-white/5 transition-all"
+              >
+                Pelajari Selengkapnya
+              </button>
+            </div>
+          </div>
+          <div class="reveal card-perspective flex justify-center">
+            <!-- Aura Platinum Card 3D Simulator -->
+            <div
+              class="aura-card relative w-[420px] h-[260px] glass-panel rounded-2xl overflow-hidden border border-white/20 shadow-2xl p-8 flex flex-col justify-between"
+              id="heroCard"
+            >
+              <div class="flex justify-between items-start">
+                <div
+                  class="w-14 h-10 bg-gradient-to-br from-yellow-400 to-yellow-700 rounded-md opacity-80 flex items-center justify-center overflow-hidden"
+                >
+                  <div
+                    class="w-full h-full border border-black/20 grid grid-cols-3 grid-rows-3"
+                  ></div>
+                </div>
+                <div
+                  class="text-primary font-display-lg text-headline-md italic tracking-widest"
+                >
+                  AURA
+                </div>
+              </div>
+              <div>
+                <div
+                  class="font-label-sm text-label-sm text-on-surface-variant mb-1 tracking-[0.2em]"
+                >
+                  PLATINUM QUANTUM
+                </div>
+                <div
+                  class="font-display-lg text-headline-md tracking-widest text-on-surface mb-6"
+                >
+                  4522 • 8890 • 1200 • 3341
+                </div>
+                <div class="flex justify-between items-end">
+                  <div>
+                    <div
+                      class="font-label-sm text-label-sm text-white/40 uppercase mb-1"
+                    >
+                      Card Holder
+                    </div>
+                    <div
+                      class="font-headline-md text-body-md font-bold uppercase tracking-wider"
+                    >
+                      AL KHAWARIZMI
+                    </div>
+                  </div>
+                  <div class="flex -space-x-4">
+                    <div class="w-10 h-10 rounded-full bg-red-500/80"></div>
+                    <div class="w-10 h-10 rounded-full bg-yellow-500/80"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Glass shine effect -->
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/5 pointer-events-none"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Dashboard Simulator Section -->
+      <section class="py-24 bg-surface-container-lowest relative">
+        <div class="max-w-container-max mx-auto px-margin-desktop">
+          <div
+            class="reveal mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8"
+          >
+            <div>
+              <h2
+                class="font-display-lg text-display-lg-mobile md:text-headline-md mb-2"
+              >
+                Simulasi Aura Dashboard
+              </h2>
+              <p class="text-on-surface-variant">
+                Kendali penuh aset finansial dalam satu tampilan elegan.
+              </p>
+            </div>
+            <div
+              class="glass-panel p-6 rounded-2xl border-primary/20 border min-w-[300px]"
+            >
+              <p
+                class="font-label-sm text-label-sm text-on-surface-variant mb-2"
+              >
+                TOTAL SALDO GABUNGAN
+              </p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-primary font-bold">Rp</span>
+                <span
+                  class="text-display-lg-mobile font-display-lg text-on-surface"
+                  id="balanceCounter"
+                  >245.750.000</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="grid lg:grid-cols-12 gap-gutter">
+            <!-- Dashboard Sidebar (Quick Actions) -->
+            <div class="lg:col-span-3 space-y-gutter reveal">
+              <div class="grid grid-cols-2 gap-4">
+                <button
+                  class="glass-panel p-6 rounded-2xl flex flex-col items-center gap-3 hover:bg-primary/10 hover:border-primary/40 transition-all group"
+                  onclick="openModal('transfer')"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary scale-125 group-hover:rotate-12 transition-transform"
+                    >send</span
+                  >
+                  <span class="font-label-sm text-label-sm">Kirim Dana</span>
+                </button>
+                <button
+                  class="glass-panel p-6 rounded-2xl flex flex-col items-center gap-3 hover:bg-primary/10 hover:border-primary/40 transition-all group"
+                  onclick="openModal('request')"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary scale-125 group-hover:-rotate-12 transition-transform"
+                    >call_received</span
+                  >
+                  <span class="font-label-sm text-label-sm">Minta Dana</span>
+                </button>
+                <button
+                  class="glass-panel p-6 rounded-2xl flex flex-col items-center gap-3 hover:bg-primary/10 hover:border-primary/40 transition-all group"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary scale-125 group-hover:scale-110 transition-transform"
+                    >qr_code_scanner</span
+                  >
+                  <span class="font-label-sm text-label-sm">Scan QRIS</span>
+                </button>
+                <button
+                  class="glass-panel p-6 rounded-2xl flex flex-col items-center gap-3 hover:bg-primary/10 hover:border-primary/40 transition-all group"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary scale-125 group-hover:scale-110 transition-transform"
+                    >bolt</span
+                  >
+                  <span class="font-label-sm text-label-sm">Bayar Tagihan</span>
+                </button>
+              </div>
+              <div class="glass-panel p-6 rounded-2xl">
+                <h3
+                  class="font-label-sm text-label-sm text-on-surface-variant mb-4 flex items-center justify-between"
+                >
+                  SMART VAULTS
+                  <span class="material-symbols-outlined text-primary text-sm"
+                    >trending_up</span
+                  >
+                </h3>
+                <div class="space-y-4">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <div class="font-body-md font-semibold">Alpha Yield</div>
+                      <div class="text-primary text-xs font-label-sm">
+                        6.2% p.a
+                      </div>
+                    </div>
+                    <div
+                      class="w-16 h-8 bg-primary/5 rounded flex items-end px-1 gap-0.5"
+                    >
+                      <div
+                        class="w-1/4 h-[30%] bg-primary/20 rounded-t-sm"
+                      ></div>
+                      <div
+                        class="w-1/4 h-[50%] bg-primary/40 rounded-t-sm"
+                      ></div>
+                      <div
+                        class="w-1/4 h-[80%] bg-primary/70 rounded-t-sm"
+                      ></div>
+                      <div
+                        class="w-1/4 h-[65%] bg-primary rounded-t-sm shadow-[0_0_5px_#75ff9e]"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center opacity-60">
+                    <div>
+                      <div class="font-body-md font-semibold">Dana Darurat</div>
+                      <div class="text-primary text-xs font-label-sm">
+                        4.5% p.a
+                      </div>
+                    </div>
+                    <div
+                      class="w-16 h-8 bg-primary/5 rounded flex items-end px-1 gap-0.5"
+                    >
+                      <div
+                        class="w-1/4 h-[40%] bg-primary/40 rounded-t-sm"
+                      ></div>
+                      <div
+                        class="w-1/4 h-[35%] bg-primary/40 rounded-t-sm"
+                      ></div>
+                      <div
+                        class="w-1/4 h-[60%] bg-primary/40 rounded-t-sm"
+                      ></div>
+                      <div
+                        class="w-1/4 h-[55%] bg-primary/60 rounded-t-sm"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Main Dashboard Content -->
+            <div class="lg:col-span-6 space-y-gutter reveal">
+              <!-- Transaction History -->
+              <div class="glass-panel rounded-2xl overflow-hidden">
+                <div
+                  class="px-8 py-6 border-b border-white/5 flex justify-between items-center"
+                >
+                  <h3 class="font-headline-md text-body-lg">
+                    Transaksi Terakhir
+                  </h3>
+                  <button
+                    class="text-primary font-label-sm text-label-sm hover:underline"
+                  >
+                    Lihat Semua
+                  </button>
+                </div>
+                <div
+                  class="divide-y divide-white/5 max-h-[400px] overflow-y-auto custom-scrollbar"
+                >
+                  <!-- Transaction Item -->
+                  <div
+                    class="px-8 py-5 flex items-center justify-between hover:bg-white/5 transition-colors"
+                  >
+                    <div class="flex items-center gap-4">
+                      <div
+                        class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary"
+                      >
+                        <span class="material-symbols-outlined"
+                          >shopping_bag</span
+                        >
+                      </div>
+                      <div>
+                        <div class="font-semibold text-on-surface">
+                          Apple Store Jakarta
+                        </div>
+                        <div class="text-xs text-on-surface-variant">
+                          Hari ini • 14:20
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-bold text-on-surface">
+                        - Rp 21.999.000
+                      </div>
+                      <span
+                        class="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20"
+                        >Berhasil</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="px-8 py-5 flex items-center justify-between hover:bg-white/5 transition-colors"
+                  >
+                    <div class="flex items-center gap-4">
+                      <div
+                        class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary"
+                      >
+                        <span class="material-symbols-outlined">payments</span>
+                      </div>
+                      <div>
+                        <div class="font-semibold text-on-surface">
+                          Gaji Bulanan - Aura Corp
+                        </div>
+                        <div class="text-xs text-on-surface-variant">
+                          Kemarin • 09:00
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-bold text-primary">+ Rp 55.000.000</div>
+                      <span
+                        class="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20"
+                        >Berhasil</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="px-8 py-5 flex items-center justify-between hover:bg-white/5 transition-colors"
+                  >
+                    <div class="flex items-center gap-4">
+                      <div
+                        class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface-variant"
+                      >
+                        <span class="material-symbols-outlined"
+                          >restaurant</span
+                        >
+                      </div>
+                      <div>
+                        <div class="font-semibold text-on-surface">
+                          Sushiro Plaza Indonesia
+                        </div>
+                        <div class="text-xs text-on-surface-variant">
+                          24 Okt • 19:45
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-right">
+                      <div class="font-bold text-on-surface">
+                        - Rp 1.250.000
+                      </div>
+                      <span
+                        class="text-[10px] px-2 py-0.5 rounded-full bg-secondary/10 text-secondary border border-secondary/20"
+                        >Diproses</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Analytics Sidebar -->
+            <div class="lg:col-span-3 space-y-gutter reveal">
+              <div
+                class="glass-panel p-6 rounded-2xl min-h-[220px] flex flex-col items-center justify-center relative overflow-hidden"
+              >
+                <h3
+                  class="font-label-sm text-label-sm text-on-surface-variant absolute top-6 left-6 uppercase"
+                >
+                  Pengeluaran
+                </h3>
+                <!-- Simple SVG Donut Chart -->
+                <svg class="w-32 h-32 transform -rotate-90">
+                  <circle
+                    cx="64"
+                    cy="64"
+                    fill="transparent"
+                    r="50"
+                    stroke="rgba(255,255,255,0.05)"
+                    stroke-width="12"
+                  ></circle>
+                  <circle
+                    class="neon-glow-primary"
+                    cx="64"
+                    cy="64"
+                    fill="transparent"
+                    r="50"
+                    stroke="#75ff9e"
+                    stroke-dasharray="314"
+                    stroke-dashoffset="100"
+                    stroke-width="12"
+                  ></circle>
+                  <circle
+                    cx="64"
+                    cy="64"
+                    fill="transparent"
+                    r="50"
+                    stroke="#00affe"
+                    stroke-dasharray="314"
+                    stroke-dashoffset="250"
+                    stroke-width="12"
+                  ></circle>
+                </svg>
+                <div class="absolute flex flex-col items-center">
+                  <span class="text-headline-md font-bold">68%</span>
+                  <span class="text-[10px] text-on-surface-variant"
+                    >Lifestyle</span
+                  >
+                </div>
+              </div>
+              <div class="glass-panel p-6 rounded-2xl">
+                <h3
+                  class="font-label-sm text-label-sm text-on-surface-variant mb-6 uppercase"
+                >
+                  Arus Kas Bulanan
+                </h3>
+                <div class="flex items-end justify-between gap-2 h-32">
+                  <div class="w-full bg-white/5 rounded-t-sm h-[40%]"></div>
+                  <div class="w-full bg-white/5 rounded-t-sm h-[60%]"></div>
+                  <div class="w-full bg-white/5 rounded-t-sm h-[30%]"></div>
+                  <div class="w-full bg-primary/40 rounded-t-sm h-[80%]"></div>
+                  <div
+                    class="w-full bg-primary rounded-t-sm h-[95%] shadow-[0_0_10px_#75ff9e]"
+                  ></div>
+                  <div class="w-full bg-white/5 rounded-t-sm h-[50%]"></div>
+                </div>
+                <div
+                  class="flex justify-between mt-4 text-[10px] text-on-surface-variant font-label-sm"
+                >
+                  <span>MEI</span><span>JUN</span><span>JUL</span
+                  ><span>AGU</span><span>SEP</span><span>OKT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Security Features -->
+      <section class="py-24 relative">
+        <div class="max-w-container-max mx-auto px-margin-desktop">
+          <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+            <h2 class="font-display-lg text-display-lg mb-6">
+              Keamanan Tingkat Enterprise
+            </h2>
+            <p class="text-on-surface-variant text-body-lg">
+              Melindungi aset Anda dengan enkripsi kuantum dan otentikasi
+              biometrik tercanggih.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-gutter">
+            <div
+              class="glass-panel p-10 rounded-3xl reveal border-t-2 border-primary/20"
+            >
+              <div
+                class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8"
+              >
+                <span
+                  class="material-symbols-outlined text-4xl"
+                  data-weight="fill"
+                  >verified_user</span
+                >
+              </div>
+              <h4 class="font-headline-md mb-4">Quantum Encryption</h4>
+              <p class="text-on-surface-variant">
+                Data Anda dienkripsi menggunakan protokol militer yang tidak
+                dapat ditembus oleh komputasi standar.
+              </p>
+            </div>
+            <div
+              class="glass-panel p-10 rounded-3xl reveal border-t-2 border-secondary/20"
+            >
+              <div
+                class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-8"
+              >
+                <span
+                  class="material-symbols-outlined text-4xl"
+                  data-weight="fill"
+                  >fingerprint</span
+                >
+              </div>
+              <h4 class="font-headline-md mb-4">Biometric Multi-Layer</h4>
+              <p class="text-on-surface-variant">
+                Akses akun instan namun sangat aman dengan pemindaian wajah 3D
+                dan pola pembuluh darah jari.
+              </p>
+            </div>
+            <div
+              class="glass-panel p-10 rounded-3xl reveal border-t-2 border-white/20"
+            >
+              <div
+                class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-on-surface mb-8"
+              >
+                <span
+                  class="material-symbols-outlined text-4xl"
+                  data-weight="fill"
+                  >policy</span
+                >
+              </div>
+              <h4 class="font-headline-md mb-4">Regulasi OJK &amp; LPS</h4>
+              <p class="text-on-surface-variant">
+                Terdaftar secara resmi dan diawasi oleh Otoritas Jasa Keuangan
+                serta simpanan dijamin oleh LPS.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- FAQ Section -->
+      <section class="py-24 bg-surface-container-low">
+        <div
+          class="max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-2 gap-20"
+        >
+          <div class="reveal">
+            <h2 class="font-display-lg text-display-lg mb-8">
+              Pertanyaan Sering Diajukan
+            </h2>
+            <p class="text-on-surface-variant mb-12">
+              Punya pertanyaan lebih lanjut? Tim pendukung eksklusif kami siap
+              membantu Anda 24/7 melalui Concierge Service.
+            </p>
+            <div class="space-y-4">
+              <div
+                class="glass-panel rounded-2xl overflow-hidden border border-white/5"
+              >
+                <button
+                  class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors"
+                  onclick="toggleFaq(this)"
+                >
+                  <span class="font-semibold"
+                    >Berapa biaya langganan Aura Platinum?</span
+                  >
+                  <span
+                    class="material-symbols-outlined transition-transform duration-300"
+                    >expand_more</span
+                  >
+                </button>
+                <div
+                  class="faq-content hidden px-8 pb-6 text-on-surface-variant"
+                >
+                  Layanan Aura Platinum memiliki biaya keanggotaan Rp
+                  500.000/bulan yang mencakup akses ke Concierge, Priority
+                  Lounge di bandara seluruh dunia, dan cashback investasi 1%.
+                </div>
+              </div>
+              <div
+                class="glass-panel rounded-2xl overflow-hidden border border-white/5"
+              >
+                <button
+                  class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-white/5 transition-colors"
+                  onclick="toggleFaq(this)"
+                >
+                  <span class="font-semibold"
+                    >Apakah AuraBank tersedia di seluruh Indonesia?</span
+                  >
+                  <span
+                    class="material-symbols-outlined transition-transform duration-300"
+                    >expand_more</span
+                  >
+                </button>
+                <div
+                  class="faq-content hidden px-8 pb-6 text-on-surface-variant"
+                >
+                  Ya, AuraBank adalah bank digital penuh yang dapat diakses dari
+                  mana saja selama Anda memiliki koneksi internet. Pembukaan
+                  akun dilakukan 100% secara digital.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div
+              class="glass-panel p-10 rounded-3xl relative overflow-hidden border border-primary/30"
+            >
+              <div
+                class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"
+              ></div>
+              <h3 class="font-headline-md text-display-lg-mobile mb-6">
+                Siap Berpindah ke Masa Depan?
+              </h3>
+              <p class="text-on-surface-variant mb-8">
+                Bergabunglah dengan 50.000+ profesional dan individu eksklusif
+                yang telah memilih AuraBank sebagai partner finansial mereka.
+              </p>
+              <form class="space-y-4" onsubmit="event.preventDefault()">
+                <div class="relative">
+                  <input
+                    class="w-full bg-background border border-white/10 rounded-xl px-6 py-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                    placeholder="Alamat Email Anda"
+                    type="email"
+                  />
+                </div>
+                <button
+                  class="w-full cyber-emerald-gradient text-on-primary py-4 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(117,255,158,0.4)] transition-all"
+                >
+                  Buka Akun Sekarang
+                </button>
+              </form>
+              <p
+                class="text-[10px] text-center mt-6 text-on-surface-variant uppercase tracking-widest"
+              >
+                Verifikasi Digital 5 Menit • Tanpa Biaya Tersembunyi
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Modal Template -->
+    <div
+      class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-md hidden items-center justify-center p-6"
+      id="modalOverlay"
+    >
+      <div
+        class="glass-panel max-w-md w-full rounded-3xl p-10 border border-primary/30 transform scale-95 transition-all duration-300"
+        id="modalContent"
+      >
+        <div class="flex justify-between items-start mb-8">
+          <div
+            class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary"
+          >
+            <span class="material-symbols-outlined text-3xl" id="modalIcon"
+              >send</span
+            >
+          </div>
+          <button
+            class="material-symbols-outlined text-on-surface-variant hover:text-white transition-colors"
+            onclick="closeModal()"
+          >
+            close
+          </button>
+        </div>
+        <h3 class="font-display-lg text-headline-md mb-4" id="modalTitle">
+          Transfer Dana
+        </h3>
+        <p class="text-on-surface-variant mb-8" id="modalDesc">
+          Silakan masukkan detail penerima dan jumlah yang ingin dikirimkan.
+        </p>
+        <div class="space-y-4 mb-8">
+          <div class="relative">
+            <label
+              class="text-[10px] text-on-surface-variant absolute top-3 left-6 font-bold"
+              >REKENING TUJUAN</label
+            >
+            <input
+              class="w-full bg-background border border-white/10 rounded-xl px-6 pt-8 pb-4 focus:border-primary outline-none"
+              type="text"
+              value="882-011-9230"
+            />
+          </div>
+          <div class="relative">
+            <label
+              class="text-[10px] text-on-surface-variant absolute top-3 left-6 font-bold"
+              >JUMLAH (IDR)</label
+            >
+            <input
+              class="w-full bg-background border border-white/10 rounded-xl px-6 pt-8 pb-4 focus:border-primary outline-none"
+              type="number"
+              value="1500000"
+            />
+          </div>
+        </div>
+        <button
+          class="w-full cyber-emerald-gradient text-on-primary py-4 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(117,255,158,0.4)] transition-all"
+        >
+          Konfirmasi Transaksi
+        </button>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer
+      class="w-full py-12 bg-surface-container-lowest border-t border-white/5"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto"
+      >
+        <div class="col-span-1 md:col-span-1">
+          <div class="text-headline-md font-display-lg text-primary mb-6">
+            AuraBank
+          </div>
+          <p class="text-on-surface-variant font-label-sm text-label-sm mb-6">
+            Evolusi perbankan digital untuk kelas dunia, berakar di Indonesia.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h4
+            class="text-on-surface font-bold font-label-sm text-label-sm mb-2"
+          >
+            Produk
+          </h4>
+          <a
+            class="text-on-surface-variant font-body-md hover:text-secondary-container transition-all text-sm"
+            href="#"
+            >Personal Banking</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-secondary-container transition-all text-sm"
+            href="#"
+            >Business Suite</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-secondary-container transition-all text-sm"
+            href="#"
+            >Wealth Management</a
+          >
+        </div>
+        <div class="flex flex-col gap-3">
+          <h4
+            class="text-on-surface font-bold font-label-sm text-label-sm mb-2"
+          >
+            Perusahaan
+          </h4>
+          <a
+            class="text-on-surface-variant font-body-md hover:text-secondary-container transition-all text-sm"
+            href="#"
+            >Tentang Kami</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-secondary-container transition-all text-sm"
+            href="#"
+            >Karir</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-secondary-container transition-all text-sm"
+            href="#"
+            >Pusat Bantuan</a
+          >
+        </div>
+        <div class="flex flex-col gap-3">
+          <h4
+            class="text-on-surface font-bold font-label-sm text-label-sm mb-2"
+          >
+            Legal
+          </h4>
+          <a
+            class="text-on-surface-variant font-body-md hover:text-secondary-container transition-all text-sm"
+            href="#"
+            >Kebijakan Privasi</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-secondary-container transition-all text-sm"
+            href="#"
+            >Syarat &amp; Ketentuan</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md hover:text-secondary-container transition-all text-sm"
+            href="#"
+            >Lapor Penipuan</a
+          >
+        </div>
+      </div>
+      <div
+        class="mt-16 px-margin-desktop max-w-container-max mx-auto border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <p
+          class="text-on-surface-variant font-label-sm text-label-sm text-center md:text-left"
+        >
+          © 2024 AuraBank Indonesia. Terdaftar dan Diawasi oleh OJK.
+        </p>
+        <div class="flex gap-6">
+          <span
+            class="w-12 h-6 bg-white/10 rounded flex items-center justify-center text-[8px] font-bold"
+            >OJK</span
+          >
+          <span
+            class="w-12 h-6 bg-white/10 rounded flex items-center justify-center text-[8px] font-bold"
+            >LPS</span
+          >
+          <span
+            class="w-12 h-6 bg-white/10 rounded flex items-center justify-center text-[8px] font-bold"
+            >ISO 27001</span
+          >
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Loader removal
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        loader.style.opacity = "0";
+        setTimeout(() => (loader.style.display = "none"), 700);
+        animateBalance();
+      });
+
+      // Reveal animations on scroll
+      const reveals = document.querySelectorAll(".reveal");
+      const observerOptions = {
+        threshold: 0.1,
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, observerOptions);
+
+      reveals.forEach((reveal) => revealObserver.observe(reveal));
+
+      // 3D Card Interaction
+      const heroCard = document.getElementById("heroCard");
+      document.addEventListener("mousemove", (e) => {
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+        const xRotation = (clientY / innerHeight - 0.5) * 20;
+        const yRotation = (clientX / innerWidth - 0.5) * -20;
+
+        heroCard.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+      });
+
+      // Balance counter animation
+      function animateBalance() {
+        const balanceEl = document.getElementById("balanceCounter");
+        let start = 240000000;
+        const target = 245750000;
+        const duration = 2000;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentBalance = Math.floor(
+            start + (target - start) * easeOutExpo(progress),
+          );
+          balanceEl.textContent = currentBalance.toLocaleString("id-ID");
+
+          if (progress < 1) requestAnimationFrame(update);
+        }
+
+        function easeOutExpo(x) {
+          return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
+        }
+
+        requestAnimationFrame(update);
+      }
+
+      // Modal Logic
+      const modalOverlay = document.getElementById("modalOverlay");
+      const modalContent = document.getElementById("modalContent");
+
+      function openModal(type) {
+        const title = document.getElementById("modalTitle");
+        const desc = document.getElementById("modalDesc");
+        const icon = document.getElementById("modalIcon");
+
+        if (type === "transfer") {
+          title.textContent = "Kirim Dana";
+          desc.textContent =
+            "Silakan masukkan detail penerima dan jumlah yang ingin dikirimkan.";
+          icon.textContent = "send";
+        } else if (type === "request") {
+          title.textContent = "Minta Dana";
+          desc.textContent =
+            "Buat tautan pembayaran unik untuk meminta dana dari rekan Anda.";
+          icon.textContent = "call_received";
+        }
+
+        modalOverlay.classList.remove("hidden");
+        modalOverlay.classList.add("flex");
+        setTimeout(() => {
+          modalContent.classList.remove("scale-95");
+          modalContent.classList.add("scale-100");
+        }, 10);
+      }
+
+      function closeModal() {
+        modalContent.classList.remove("scale-100");
+        modalContent.classList.add("scale-95");
+        setTimeout(() => {
+          modalOverlay.classList.remove("flex");
+          modalOverlay.classList.add("hidden");
+        }, 300);
+      }
+
+      // FAQ Toggle
+      function toggleFaq(btn) {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector(".material-symbols-outlined");
+        const isOpen = !content.classList.contains("hidden");
+
+        // Close all
+        document
+          .querySelectorAll(".faq-content")
+          .forEach((c) => c.classList.add("hidden"));
+        document
+          .querySelectorAll(".faq-content")
+          .forEach(
+            (c) =>
+              (c.previousElementSibling.querySelector(
+                ".material-symbols-outlined",
+              ).style.transform = "rotate(0deg)"),
+          );
+
+        if (!isOpen) {
+          content.classList.remove("hidden");
+          icon.style.transform = "rotate(180deg)";
+        }
+      }
+    </script>
+  </body>
+</html>
